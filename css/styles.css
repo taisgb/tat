@@ -365,6 +365,19 @@ body {
   line-height: 1.6;
 }
 
+/* --- AJUSTES PARA TELAS MENORES DE DESKTOP (NOTEBOOKS DE 13" A 15") --- */
+@media (max-width: 1440px) {
+  .hero h1 {
+    font-size: 3.8rem; /* Reduzimos o tamanho da fonte de 5rem para 3.8rem */
+    overflow-wrap: break-word; /* Força a quebra da palavra se ela for maior que a coluna */
+  }
+
+  /* Ajuste opcional para o espaço entre colunas */
+  .hero-content {
+    gap: 2rem;
+  }
+}
+
 /* Para telas com largura máxima de 768px (tablets e celulares) */
 @media (max-width: 768px) {
   .diferenciais-content {
