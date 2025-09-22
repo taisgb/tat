@@ -184,7 +184,6 @@ body {
   background-repeat: no-repeat, no-repeat;
   background-position: top left, bottom right;
   background-size: 15%;
-
 }
 
 .beneficios h2 {
@@ -306,12 +305,11 @@ body {
   font-weight: 700;
 }
 .diferenciais-image {
-  align-self: center; /* Centraliza este item específico no eixo vertical */
-  text-align: center; /* Garante que a imagem dentro do container fique centralizada */
+  text-align: center;
 }
 .diferenciais-image img {
   width: 100%;
-  max-width: 400px; /* Limita a largura máxima da imagem */
+  max-width: 400px;
   height: auto;
 }
 
@@ -365,42 +363,7 @@ body {
   line-height: 1.6;
 }
 
-/* --- AJUSTES PARA TELAS MENORES DE DESKTOP (NOTEBOOKS DE 13" A 15") --- */
-@media (max-width: 1440px) {
-  .hero h1 {
-    font-size: 3.8rem; /* Reduzimos o tamanho da fonte de 5rem para 3.8rem */
-    overflow-wrap: break-word; /* Força a quebra da palavra se ela for maior que a coluna */
-  }
-
-  /* Ajuste opcional para o espaço entre colunas */
-  .hero-content {
-    gap: 2rem;
-  }
-}
-
-/* Para telas com largura máxima de 768px (tablets e celulares) */
-@media (max-width: 768px) {
-  .diferenciais-content {
-    /* Muda o grid para apenas uma coluna */
-    grid-template-columns: 1fr;
-    
-    /* Aumenta o espaço entre os itens quando empilhados */
-    gap: 2.5rem; 
-  }
-
-  .diferenciais-text, .features-list {
-    /* Centraliza o texto quando em uma única coluna */
-    text-align: center;
-  }
-
-  .diferenciais-list {
-    /* Garante que a lista dentro do container fique alinhada à esquerda em telas menores */
-    text-align: left;
-  }
-}
-
 /* Depoimentos Section */
-/* --- Seção de Depoimentos (Estrutura Principal) --- */
 .depoimentos {
   padding: 5rem 0;
   background: #fdfdfd;
@@ -415,42 +378,35 @@ body {
   font-weight: 700;
 }
 
-/* --- Estrutura do Carrossel Swiper --- */
 .depoimentos-carousel.swiper {
   width: 100%;
   padding: 40px 0;
 }
 
 .swiper-slide {
-  /* Define a largura de cada slide. O 'slidesPerView: auto' no JS vai respeitar isso. */
   width: 70%; 
   max-width: 500px;
-  
-  /* Slides inativos ficam semi-transparentes */
   opacity: 0.4;
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-/* Slide ativo (central) fica 100% opaco e um pouco maior para se destacar */
 .swiper-slide-active {
     opacity: 1;
     transform: scale(1.05);
 }
 
-/* --- Estilo do Card (Dentro do Slide) --- */
 .depoimento-card {
   background: white;
   border-radius: 15px;
   padding: 2.5rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  border-bottom: 8px solid #F1D140; /* Dourado */
+  border-bottom: 8px solid #F1D140;
   width: 100%;
   height: 100%;
-  display: flex; /* Adicionado para garantir o alinhamento interno */
-  flex-direction: column; /* Adicionado para garantir o alinhamento interno */
+  display: flex;
+  flex-direction: column;
 }
 
-/* --- Conteúdo Interno do Card --- */
 .depoimento-content {
   height: 100%;
   display: flex;
@@ -481,7 +437,7 @@ body {
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-top: auto; /* Garante que o autor fique no final do card */
+  margin-top: auto;
 }
 
 .depoimento-author img {
@@ -502,24 +458,19 @@ body {
   font-size: 0.9rem;
 }
 
-/* --- ESTILO DA BARRA DE ROLAGEM (SCROLLBAR) --- */
-/* O trilho (a base da barra) */
 .depoimentos .swiper-scrollbar {
-  background: rgba(241, 228, 181, 0.6); /* Sua cor dourada/clara */
+  background: rgba(241, 228, 181, 0.6);
   height: 12px;
   border-radius: 10px;
   position: static;
   margin: 2.5rem auto 0;
-  max-width: 100%;
+  max-width: 400px;
   cursor: pointer;
 }
 
-/* A barrinha que o usuário arrasta */
 .depoimentos .swiper-scrollbar-drag {
   background: #8B0000; 
   border-radius: 10px;
-  width: 50px !important; /* Largura fixa para melhor usabilidade */
-  height: 100%;
 }
 
 /* FAQ Section */
@@ -543,7 +494,8 @@ body {
   background: white;
   border-radius: 10px;
   margin-bottom: 1rem;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
 }
 
 .faq-question {
@@ -553,16 +505,20 @@ body {
   font-weight: 600;
   color: var(--primary-color);
   font-family: var(--font-text);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .faq-question::after {
   content: '+';
-  position: absolute;
-  right: 20px;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
+  font-weight: 400;
   transition: transform 0.3s;
+  margin-left: 1rem;
 }
-.faq-question.active::after {
+
+.faq-item.active .faq-question::after {
   transform: rotate(45deg);
 }
 
@@ -570,44 +526,25 @@ body {
   background: #f1f1f1;
 }
 
-.faq-question::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 5px;
-  background: var(--accent-color);
-  
-}
-
-.faq-item.active .faq-question::after {
-  transform: rotate(45deg);
-}
 .faq-answer {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease;
+  transition: max-height 0.4s ease-out;
   padding: 0 1.5rem;
-  background: #f1f1f1;
-}
-.faq-answer p {
-  padding: 1rem 0;
   color: #555;
+  font-family: var(--font-text);
   line-height: 1.6;
 }
 
 .faq-item.active .faq-answer {
-  max-height: 200px; /* Altura máxima da resposta, ajuste se necessário */
+  max-height: 200px;
   padding: 0 1.5rem 1.5rem 1.5rem;
 }
-
 
 /* Final CTA */
 .final-cta {
   padding: 4rem 0;
   color: var(--primary-color);
-  text-family: var(--font-family);
   text-align: center;
 }
 
@@ -620,33 +557,28 @@ body {
 /* Footer */
 .footer {
   background: var(--primary-color);
-  border-top: 5px solid var(--accent-color); /* CORRIGIDO: "border-top" */
+  border-top: 5px solid var(--accent-color);
   color: white;
   padding: 2.5rem 0;
 }
 
-/* Container Flexbox para alinhar os itens */
 .footer-content {
   display: flex;
-  justify-content: space-between; /* Espaça os itens horizontalmente */
-  align-items: center;           /* Alinha os itens verticalmente ao centro */
-  flex-wrap: wrap;               /* Permite que os itens quebrem para a linha de baixo em telas pequenas */
-  gap: 1.5rem;                   /* Espaçamento entre os itens */
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
 }
 
-/* Estilo do logo no rodapé */
 .footer-logo {
   text-align: left;
 }
 
-/* Estilo do copyright */
 .footer-copyright p {
   font-size: 0.9rem;
   opacity: 0.8;
 }
 
-
-/* Estilo dos ícones de redes sociais */
 .social-footer {
   display: flex;
   gap: 1.5rem; 
@@ -686,16 +618,11 @@ body {
   }
 }
 
-
 /* Para Celulares (até 768px) */
 @media (max-width: 768px) {
   /* --- Ajustes Gerais --- */
   h1 { font-size: 2.5rem; }
   h2 { font-size: 2rem; }
-  body {
-    margin: 0;
-    padding: 0;
-  }
 
   /* --- Header --- */
   .header-content {
@@ -705,19 +632,37 @@ body {
 
   /* --- Hero Section --- */
   .hero {
-    min-height: 80vh; /* Ajusta a altura mínima para telas menores */
-    padding: 4rem 0;
+    min-height: 80vh;
     display: flex;
     position: relative;
     align-items: center;
-  }  
+  }
+  
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(40, 0, 0, 0.6);
+    z-index: 1;
+  }
   
   .hero-content {
     grid-template-columns: 1fr;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   .hero h1 {
     font-size: 2.8rem;
+    color: white;
+  }
+  .hero-subtitle {
+    color: #f1f1f1;
+    font-size: 1.1rem;
   }
   .hero-buttons {
     flex-direction: column;
@@ -725,8 +670,11 @@ body {
   }
 
   /* --- Benefícios --- */
+  .beneficios {
+    background-image: none; /* Remove imagens de fundo no mobile */
+  }
   .beneficio-card:nth-child(odd) {
-    transform: translateY(0); /* Remove o efeito de desalinhamento */
+    transform: translateY(0);
   }
   .beneficios-grid {
     grid-template-columns: 1fr;
@@ -737,7 +685,7 @@ body {
     grid-template-columns: 1fr;
   }
   .vantagem-image {
-    order: -1; /* Coloca a imagem antes do texto */
+    order: -1;
   }
   .vantagem-text {
     text-align: center;
@@ -764,7 +712,7 @@ body {
   
   /* --- Depoimentos --- */
   .swiper-slide {
-      width: 90%; /* Slides ocupam mais espaço em telas menores */
+      width: 90%;
   }
   
   /* --- FAQ --- */
